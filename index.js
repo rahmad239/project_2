@@ -16,4 +16,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //create index.hbs
 //define our routes including rendering index view
 // start server
-app.listen(4000, () => console.log(" app is running"));
+
+app.get("/", (req, res) => {
+  Location.find({}).then(function(places) {
+    res.render("index", { places });
+  });
+});
+
+// app.get("/", (request, response) => {
+//   response.send("this will be ur views");
+// });
+
+app.use("/locations", locationController);
+
+app.listen(3500, () => {
+  console.log(" app up and is running");
+});
