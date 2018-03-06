@@ -1,15 +1,17 @@
 
 <h3>Submit Info For New Location</h3>
-<div>
-  {{!-- <form action="/action_page.php"> --}}
+{{!-- <div> --}}
+  <form action="/locations" method="post">
+    <p>
     <label for="locale">Location/Destination</label>
-    <input type="text" id="locale" name="locale" placeholder="City, Country Names..">
+    <input type="text" id="locale" name="title" placeholder="City, Country Names..">
     
     <label for="memory">Travel Notes</label>
-    <input type="text" id="memory" name="memory" placeholder="What was memorable..">
-
-    <input type="submit" value="Submit">
+    <input type="text" id="memory" name="body" placeholder="What was memorable..">
+    </p>
+    <input type="submit" value="Post">
 
   </form>
-  <a href="/index"> </a>
-</div>
+  {{!-- <a href="/index"> </a>
+</div> --}}
+{{!-- //do i need to change the value field to correspond with a part of the schema? --}}

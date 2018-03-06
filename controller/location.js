@@ -7,26 +7,30 @@
 const express = require("express");
 const router = express.Router();
 const Location = require("../model/Location");
+const hbs = require("hbs");
+//do I need this? why wont the show view render?
 
 router.get("/", (req, res) => {
   Location.find({}).then(places => {
-    res.render("locations/index", { places });
-  });
-});
-
-router.post("/", (req, res) => {
-  Location.create(req.body).then(places => {
-    res.redirect("locations/${ places.id}");
+    res.render("index", { places });
   });
 });
 
 //new post
-router.post("");
+router.post("/", (req, res) => {
+  Location.create(req.body).then(places => {
+    res.redirect(`/location/${location.title}`, { places });
+  });
+});
 
-//by id
-router.get("/:id", (req, res) => {
-  Location.findOne({ _id: req.params.id }).then(place => {
-    res.render("locations/show", place);
+router.get("/new", (req, res) => {
+  res.render("location/new");
+});
+
+//by title;
+router.get("/:title", (req, res) => {
+  Location.findOne({ title: req.params.title }).then(function(places) {
+    res.render("location/show", places);
   });
 });
 

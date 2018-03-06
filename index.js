@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // make the views folder with :
 // //create layout.hbs
@@ -22,10 +23,6 @@ app.get("/", (req, res) => {
     res.render("index", { places });
   });
 });
-
-// app.get("/", (request, response) => {
-//   response.send("this will be ur views");
-// });
 
 // app.use("/locations", locationController);
 // start server
