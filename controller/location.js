@@ -10,28 +10,24 @@ const Location = require("../model/Location");
 
 router.get("/", (req, res) => {
   Location.find({}).then(places => {
-    res.render("location/index", { places });
+    res.render("locations/index", { places });
   });
 });
 
-router.get("/", (req, res) => {
-  Location.find({}).then(function(places) {
-    res.render("index", { places });
+router.post("/", (req, res) => {
+  Location.create(req.body).then(places => {
+    res.redirect("locations/${ places.id}");
   });
 });
+
+//new post
+router.post("");
 
 //by id
 router.get("/:id", (req, res) => {
-  Location.findOne({ _id: req.params.id }).then(cars => {
-    res.render("location/show", places);
+  Location.findOne({ _id: req.params.id }).then(place => {
+    res.render("locations/show", place);
   });
 });
-// router.get('/', (req, res) => {
-//     Location.find({})
-//       .then(location => {
-//         res.render('index', { location });
-//       })
-//       .catch(err => console.log(err))
-//   });
 
 module.exports = router;
