@@ -1,18 +1,22 @@
+ <div class ="container">
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/locations/new">New</a></li>
+          <li><a href="/locations/edit/{{this.id}}">Edit</a></li>
+          <li><a href="/">Destinations</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
 <h3>Location Details</h3>
 <div>
 {{this.places}}
     <h4>{{this.title}}</h4>
     <p>{{ this.body }}</p>
   </div>
-  
-<a href="/locations/edit/{{this.id}}">Edit</a>
-
-<a href="/">Destination</a> 
-
-
-<a href="/locations/new">New</a>
-
-
 <form action="/locations/{{this.id}}?_method=delete" method="post">
 <input type="submit" value="Remove">
 </form>
