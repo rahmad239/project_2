@@ -8,7 +8,6 @@ const express = require("express");
 const router = express.Router();
 const Location = require("../model/Location");
 const hbs = require("hbs");
-//do I need this? why wont the show view render?
 
 router.get("/", (req, res) => {
   Location.find({}).then(places => {
@@ -16,22 +15,67 @@ router.get("/", (req, res) => {
   });
 });
 
-//new post
-router.post("/", (req, res) => {
-  Location.create(req.body).then(places => {
-    res.redirect(`/location/${location.title}`, { places });
-  });
-});
-
+//new form
 router.get("/new", (req, res) => {
   res.render("location/new");
 });
 
-//by title;
-router.get("/:title", (req, res) => {
-  Location.findOne({ title: req.params.title }).then(function(places) {
-    res.render("location/show", places);
-  });
+//call edit into a path
+router.get("/edit", (req, res) => {
+  res.render("location/edit");
 });
 
+//new post processing
+router.post("/", (req, res) => {
+  Location.create({
+    title: req.body.title,
+    body: req.body.body
+  })
+    .then(places => {
+      res.redirect("/");
+    })
+    .catch(err => console.log(err));
+});
+
+//show details by ID;
+router.get("/:id", (req, res) => {
+  Location.findOne({ _id: req.params.id })
+    .then(places => {
+      res.render("location/show", places);
+    })
+    .catch(err => console.log(err));
+});
+
+// //remove a post
+router.delete("/:id", (req, res) => {
+  Location.findOneAndRemove({ _id: req.params.id })
+    .then(places => {
+      res.redirect("/");
+    })
+    .catch(err => console.log(err));
+});
+
+//edit a post
+router.get("/edit/:id", (req, res) => {
+  Location.findOne({ _id: req.params.id })
+    .then(places => {
+      res.render("location/edit", places);
+    })
+    .catch(err => console.log(err));
+});
+
+router.put("/:id", (req, res) => {
+  Location.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      title: req.body.title,
+      body: req.body.body
+    },
+    {
+      new: true
+    }
+  ).then(places => {
+    res.redirect("/");
+  });
+});
 module.exports = router;

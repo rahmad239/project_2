@@ -5,12 +5,15 @@ const hbs = require("hbs");
 const Location = require("./model/Location");
 const locationController = require("./controller/location");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
+
 // create and set up our express app
 // configure it all to use hbs
 
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 // make the views folder with :
 // //create layout.hbs
@@ -24,7 +27,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// app.use("/locations", locationController);
 // start server
 app.listen(3500, () => {
   console.log(" app up and is running");
