@@ -1,12 +1,13 @@
 <h3>Location Details</h3>
-
-<div class="card">
-  <div class="card-stacked">
-    <h4>{{title}}</h4>
+<div>
+{{this.places}}
+    <h4>{{this.title}}</h4>
+    <p>{{ this.body }}</p>
   </div>
-  <div class="card-action">
-    <p>{{ body }}</p>
-  </div>
-</div>
- <a href="/">Destination List</a> 
- <a href="/locations/new">New</a>
+  
+<a href="/locations/edit/{{this.id}}">Edit</a>
+<a href="/">Destinations</a> 
+<a href="/locations/new">New</a>
+<form action="/locations/{{this.id}}?_method=delete" method="post">
+<input type="submit" value="Remove">
+</form>
