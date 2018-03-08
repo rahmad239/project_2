@@ -9,18 +9,19 @@
       </div>
     </nav>
 
+<div class="container"></div>
 <section class="lists">
   {{#each places}}
   <a href="/locations/{{id}}" class="test">
-    <div class="places list">
-      <div class="places">
+    <div class="col s12 m5">
+      <div class="card transparent z-depth-5">
         <p>{{title}}</p>
       </div>
     </div>
   </a>
   {{/each}}
 </section>
-
+</div>
 
  {{!-- <div class="container">
    {{#each places}}
