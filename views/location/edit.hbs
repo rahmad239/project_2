@@ -11,15 +11,14 @@
 
 <div class="container">
 <h1>Edit Location Details:</h1>
-
-<form action="/locations/{{this.id}}?_method=put" method="post">
-  <p>
-    <label>Location:</label>
-    <input type="text" value="{{this.title}}" name="title"/>
-    
-    <label>Travel Notes</label>
-    <input type="text" value="{{this.body}}" name="body"/>
-  </p>
-    <input type="submit" value="Update" />
-</form>
 </div>
+  <form action="/locations/{{this.id}}?_method=put" method="post">
+    <p>
+      <label>Location:</label>
+      <input type="text" value="{{this.title}}" name="title"/>
+      
+      <label>Travel Notes</label>
+      <input type="text" value="{{this.body}}" name="body"/>
+    </p>
+      <input type="submit" value="Update" />
+  </form>
