@@ -1,4 +1,4 @@
- 
+ {{!-- add the code for the nav bar and make the logo route to home --}}
   <nav>
       <div class="nav-wrapper #b39ddb deep-purple lighten-3">
         <a href="/locations" class="brand-logo">Gotta Get Back</a>
@@ -10,10 +10,11 @@
       </div>
     </nav>
 
-<div class = "container">
+{{!-- Set up each card and center them --}}
+<div class="container">
   <h1>Location Details</h1>
     <div class="row">
-          <div class="col s12 m5">
+          {{!-- <div class="col s12 m5"> --}}
             <div class="card #9575cd deep-purple lighten-5">
               <div class="card-content black-text">
                 <span class="card-title">{{this.title}}</span>
@@ -25,7 +26,7 @@
                 </form>
               </div>
             </div>
-        </div>
+        {{!-- </div> --}}
     </div>
 </div>
             
