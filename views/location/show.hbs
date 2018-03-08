@@ -10,33 +10,22 @@
       </div>
     </nav>
 
-
-{{!-- <h3>Location Details</h3>
-<div>
-{{this.places}}
-    <h4>{{this.title}}</h4>
-    <p>{{ this.body }}</p>
-  </div>
-<form action="/locations/{{this.id}}?_method=delete" method="post">
-<input type="submit" value="Remove">
-</form> --}}
 <div class = "container">
   <h1>Location Details</h1>
-</div>
- <div class="row">
-        <div class="col s12 m5">
-          <div class="card #9575cd deep-purple lighten-5">
-            <div class="card-content black-text">
-              <span class="card-title">{{this.title}}</span>
-              <p>{{this.body}}</p>
+    <div class="row">
+          <div class="col s12 m5">
+            <div class="card #9575cd deep-purple lighten-5">
+              <div class="card-content black-text">
+                <span class="card-title">{{this.title}}</span>
+                <p>{{this.body}}</p>
+              </div>
+              <div class="card-action">
+                <form action="/locations/{{this.id}}?_method=delete" method="post">
+                <input type="submit" value="Remove">
+                </form>
+              </div>
             </div>
-            <div class="card-action">
-              {{!-- <a href="#">This is a link</a> --}}
-              <form action="/locations/{{this.id}}?_method=delete" method="post">
-              <input type="submit" value="Remove">
-              </form>
-            </div>
-          </div>
         </div>
-  </div>
+    </div>
+</div>
             
